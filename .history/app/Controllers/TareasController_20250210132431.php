@@ -76,8 +76,10 @@ class TareasController extends BaseController
     {
         $tareaModel = new TareaModel(); 
         if ($tareaModel->delete($id)) {
+            
             return redirect()->to(base_url('dashboard'))->with('success', 'Tarea eliminada correctamente');
         } else {
+            // Si no se pudo eliminar la tarea, redirigimos al dashboard con un mensaje de error
             return redirect()->to(base_url('dashboard'))->with('error', 'Hubo un error al eliminar la tarea');
         }
     }

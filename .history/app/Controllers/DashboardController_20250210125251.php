@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use CodeIgniter\HTTP\ResponseInterface;
-use App\Models\TareaModel;
+use App\Models\AlumnoModel;
 
 class DashboardController extends BaseController
 {

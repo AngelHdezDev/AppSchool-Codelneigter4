@@ -4,7 +4,6 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use CodeIgniter\HTTP\ResponseInterface;
-use App\Models\TareaModel;
 
 class DashboardController extends BaseController
 {
@@ -15,9 +14,6 @@ class DashboardController extends BaseController
             return redirect()->to('/login')->with('error', 'Debes iniciar sesión primero.');
         }
 
-        $tareaModel = new TareaModel(); 
-        $tareas = $tareaModel->findAll();
-        return view('dashboard', ['tareas' => $tareas]);
-
+        return view('dashboard');
     }
 }

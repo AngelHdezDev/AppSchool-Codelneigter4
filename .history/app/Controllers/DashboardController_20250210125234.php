@@ -4,7 +4,6 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use CodeIgniter\HTTP\ResponseInterface;
-use App\Models\TareaModel;
 
 class DashboardController extends BaseController
 {
@@ -19,5 +18,6 @@ class DashboardController extends BaseController
         $tareas = $tareaModel->findAll();
         return view('dashboard', ['tareas' => $tareas]);
 
+        return view('dashboard');
     }
 }

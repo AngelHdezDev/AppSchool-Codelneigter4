@@ -10,9 +10,7 @@ class TareasController extends BaseController
 {
     public function index()
     {
-        $tareaModel = new TareaModel();
-        $tareas = $tareaModel->findAll();
-        return view('tareas', ['tareas' => $tareas]);
+        return view('tareas');
     }
 
     public function tarea()
@@ -72,13 +70,15 @@ class TareasController extends BaseController
     }
 
 
-    public function delete($id)
-    {
-        $tareaModel = new TareaModel(); 
-        if ($tareaModel->delete($id)) {
-            return redirect()->to(base_url('dashboard'))->with('success', 'Tarea eliminada correctamente');
-        } else {
-            return redirect()->to(base_url('dashboard'))->with('error', 'Hubo un error al eliminar la tarea');
-        }
-    }
+    public function index()
+{
+    $tareaModel = new TareaModel(); // Crear una instancia del modelo de tareas
+
+    // Obtener todas las tareas de la base de datos
+    $tareas = $tareaModel->findAll();
+
+    // Pasar las tareas a la vista del dashboard
+    return view('dashboard', ['tareas' => $tareas]);
+}
+
 }

@@ -256,12 +256,11 @@
                         </div>
                         <div class="task-actions">
                             <button class="edit-btn"><i class="fas fa-edit"></i></button>
-                             <!-- Formulario para eliminar la tarea -->
-                             <form action="<?= base_url('tarea/delete/' . $tarea['id']); ?>" method="POST" style="display:inline;">
-                                <button type="submit" class="delete-btn"><i class="fas fa-trash"></i> </button>
-                            </form>
                         </div>
-                        
+                        <!-- Formulario para eliminar la tarea -->
+                        <form action="<?= base_url('tarea/delete/' . $tarea['id']); ?>" method="POST" style="display:inline;">
+                            <button type="submit" class="delete-btn"><i class="fas fa-trash"></i> </button>
+                        </form>
                     </div>
                 <?php endforeach; ?>
             </div>

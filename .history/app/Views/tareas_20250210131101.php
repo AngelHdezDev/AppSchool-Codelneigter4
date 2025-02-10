@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Profesor</title>
+    <title>Tareas - Profesor</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
@@ -19,7 +19,6 @@
             min-height: 100vh;
         }
 
-        /* Sidebar */
         .sidebar {
             width: 250px;
             background: #2c3e50;
@@ -38,18 +37,11 @@
             width: 80px;
             height: 80px;
             border-radius: 50%;
-            margin-bottom: 10px;
         }
 
-        .profile-section h3 {
-            color: white;
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-        }
-
+        .profile-section h3,
         .profile-section p {
-            color: #bdc3c7;
-            font-size: 0.9rem;
+            color: white;
         }
 
         .menu {
@@ -71,11 +63,8 @@
 
         .menu-item i {
             margin-right: 10px;
-            width: 20px;
-            text-align: center;
         }
 
-        /* Main Content */
         .main-content {
             margin-left: 250px;
             padding: 20px;
@@ -96,56 +85,26 @@
             color: #2c3e50;
         }
 
-        .logout-btn {
-            background: #e74c3c;
+        .create-task-btn {
+            background: #2ecc71;
             color: white;
-            padding: 8px 15px;
+            padding: 10px 20px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            text-decoration: none;
+            display: flex;
+            align-items: center;
         }
 
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-
-        .stat-card {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .stat-card i {
-            font-size: 2rem;
-            margin-bottom: 10px;
-            color: #3498db;
-        }
-
-        .stat-card h3 {
-            font-size: 1.8rem;
-            color: #2c3e50;
-            margin-bottom: 5px;
-        }
-
-        .stat-card p {
-            color: #7f8c8d;
-        }
-
-        .recent-tasks {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        .create-task-btn i {
+            margin-right: 8px;
         }
 
         .task-list {
-            margin-top: 15px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .task-item {
@@ -187,67 +146,57 @@
             background: #e74c3c;
             color: white;
         }
-
-        .create-task-btn {
-            background: #2ecc71;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-bottom: 20px;
-            display: inline-flex;
-            align-items: center;
-        }
-
-        .create-task-btn i {
-            margin-right: 8px;
-        }
     </style>
 </head>
 
 <body>
-    <!-- Sidebar -->
     <?php include(APPPATH . 'Views/partials/sidebar.php'); ?>
 
-    <!-- Main Content -->
+
     <div class="main-content">
         <div class="header">
-            <h1>Dashboard</h1>
-
-            <a href="<?= base_url('auth/logout') ?>"" class=" logout-btn">
-                <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+            <h1>Tareas</h1>
+            <a href="<?= base_url('/tarea') ?>" class="create-task-btn">
+                <i class="fas fa-plus"></i> Nueva Tarea
             </a>
         </div>
 
-        <a href="<?= base_url('/tarea') ?>" class="create-task-btn">
-            <i class="fas fa-plus"></i> Nueva Tarea
-        </a>
-
-
-        <div class="dashboard-grid">
-            <div class="stat-card">
-                <i class="fas fa-users"></i>
-                <h3>150</h3>
-                <p>Alumnos Totales</p>
+        <div class="task-list">
+            <h2>Lista de Tareas</h2>
+            <div class="task-item">
+                <div class="task-info">
+                    <h4>Ejercicios de Álgebra</h4>
+                    <p>Fecha límite: 15 de Febrero, 2025</p>
+                </div>
+                <div class="task-actions">
+                    <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                    <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                </div>
             </div>
-            <div class="stat-card">
-                <i class="fas fa-tasks"></i>
-                <h3>24</h3>
-                <p>Tareas Activas</p>
+            <div class="task-item">
+                <div class="task-info">
+                    <h4>Proyecto de Geometría</h4>
+                    <p>Fecha límite: 20 de Febrero, 2025</p>
+                </div>
+                <div class="task-actions">
+                    <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                    <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                </div>
             </div>
-            <div class="stat-card">
-                <i class="fas fa-clock"></i>
-                <h3>12</h3>
-                <p>Pendientes de Calificar</p>
+            <div class="task-item">
+                <div class="task-info">
+                    <h4>Examen de Trigonometría</h4>
+                    <p>Fecha límite: 25 de Febrero, 2025</p>
+                </div>
+                <div class="task-actions">
+                    <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                    <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                </div>
             </div>
         </div>
 
-        <!-- resources/views/dashboard.php -->
 
-        <div class="recent-tasks">
-            <h2>Tareas Recientes</h2>
-            <div class="task-list">
+        <div class="task-list">
                 <?php foreach ($tareas as $tarea): ?>
                     <div class="task-item">
                         <div class="task-info">
@@ -256,18 +205,11 @@
                         </div>
                         <div class="task-actions">
                             <button class="edit-btn"><i class="fas fa-edit"></i></button>
-                             <!-- Formulario para eliminar la tarea -->
-                             <form action="<?= base_url('tarea/delete/' . $tarea['id']); ?>" method="POST" style="display:inline;">
-                                <button type="submit" class="delete-btn"><i class="fas fa-trash"></i> </button>
-                            </form>
+                            <button class="delete-btn"><i class="fas fa-trash"></i></button>
                         </div>
-                        
                     </div>
                 <?php endforeach; ?>
             </div>
-        </div>
-
-
     </div>
 </body>
 

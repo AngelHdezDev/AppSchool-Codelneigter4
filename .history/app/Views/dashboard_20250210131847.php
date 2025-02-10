@@ -245,6 +245,8 @@
 
         <!-- resources/views/dashboard.php -->
 
+        <!-- resources/views/dashboard.php -->
+
         <div class="recent-tasks">
             <h2>Tareas Recientes</h2>
             <div class="task-list">
@@ -255,13 +257,12 @@
                             <p>Fecha límite: <?= esc($tarea['fecha_entrega']); ?></p>
                         </div>
                         <div class="task-actions">
-                            <button class="edit-btn"><i class="fas fa-edit"></i></button>
-                             <!-- Formulario para eliminar la tarea -->
-                             <form action="<?= base_url('tarea/delete/' . $tarea['id']); ?>" method="POST" style="display:inline;">
-                                <button type="submit" class="delete-btn"><i class="fas fa-trash"></i> </button>
+                            <!-- Formulario para eliminar la tarea -->
+                            <form action="<?= base_url('tarea/delete/' . $tarea['id']); ?>" method="POST" style="display:inline;">
+                                <button type="submit" class="delete-btn"><i class="fas fa-trash"></i> Eliminar</button>
                             </form>
+                            <button class="edit-btn"><i class="fas fa-edit"></i></button>
                         </div>
-                        
                     </div>
                 <?php endforeach; ?>
             </div>

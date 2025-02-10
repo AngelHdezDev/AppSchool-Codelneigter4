@@ -160,8 +160,43 @@
                 <i class="fas fa-plus"></i> Nueva Tarea
             </a>
         </div>
+
         <div class="task-list">
             <h2>Lista de Tareas</h2>
+            <div class="task-item">
+                <div class="task-info">
+                    <h4>Ejercicios de Álgebra</h4>
+                    <p>Fecha límite: 15 de Febrero, 2025</p>
+                </div>
+                <div class="task-actions">
+                    <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                    <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                </div>
+            </div>
+            <div class="task-item">
+                <div class="task-info">
+                    <h4>Proyecto de Geometría</h4>
+                    <p>Fecha límite: 20 de Febrero, 2025</p>
+                </div>
+                <div class="task-actions">
+                    <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                    <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                </div>
+            </div>
+            <div class="task-item">
+                <div class="task-info">
+                    <h4>Examen de Trigonometría</h4>
+                    <p>Fecha límite: 25 de Febrero, 2025</p>
+                </div>
+                <div class="task-actions">
+                    <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                    <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="task-list">
             <?php foreach ($tareas as $tarea): ?>
                 <div class="task-item">
                     <div class="task-info">
