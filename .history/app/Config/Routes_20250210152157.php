@@ -16,4 +16,4 @@ $routes->post('/tarea/store', 'TareasController::store');
 $routes->post('/tarea/delete/(:num)', 'TareasController::delete/$1');
 $routes->get('/tarea/editar/(:num)', 'TareasController::editar/$1');
 $routes->post('/tarea/update/(:num)', 'TareasController::update/$1');
-$routes->get('/alumnos', 'AlumnosController::index');
+$routes->get

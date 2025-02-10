@@ -11,7 +11,7 @@
         <a href="<?= base_url('tareas') ?>" class="menu-item">
             <i class="fas fa-tasks"></i> Tareas
         </a>
-        <a href="<?= base_url('alumnos') ?>" class="menu-item">
+        <a href="<?= base_url('students') ?>" class="menu-item">
             <i class="fas fa-users"></i> Alumnos
         </a>
         <a href="<?= base_url('grades') ?>" class="menu-item">
