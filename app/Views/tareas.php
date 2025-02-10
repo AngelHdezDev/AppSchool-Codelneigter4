@@ -150,33 +150,8 @@
 </head>
 
 <body>
-    <div class="sidebar">
-        <div class="profile-section">
-            <img src="/api/placeholder/80/80" alt="Profesor">
-            <h3>Prof. Juan Pérez</h3>
-            <p>Matemáticas</p>
-        </div>
-        <div class="menu">
-            <a href="<?= base_url('dashboard') ?>" class="menu-item">
-                <i class="fas fa-home"></i> Dashboard
-            </a>
-            <a href="<?= base_url('tasks') ?>" class="menu-item">
-                <i class="fas fa-tasks"></i> Tareas
-            </a>
-            <a href="<?= base_url('students') ?>" class="menu-item">
-                <i class="fas fa-users"></i> Alumnos
-            </a>
-            <a href="<?= base_url('grades') ?>" class="menu-item">
-                <i class="fas fa-star"></i> Calificaciones
-            </a>
-            <a href="<?= base_url('messages') ?>" class="menu-item">
-                <i class="fas fa-envelope"></i> Mensajes
-            </a>
-            <a href="<?= base_url('settings') ?>" class="menu-item">
-                <i class="fas fa-cog"></i> Configuración
-            </a>
-        </div>
-    </div>
+<?php include(APPPATH . 'Views/partials/sidebar.php'); ?>
+
 
     <div class="main-content">
         <div class="header">
@@ -202,7 +177,7 @@
                 <div class="task-info">
                     <h4>Proyecto de Geometría</h4>
                     <p>Fecha límite: 20 de Febrero, 2025</p>
-                </div>
+             </div>
                 <div class="task-actions">
                     <button class="edit-btn"><i class="fas fa-edit"></i></button>
                     <button class="delete-btn"><i class="fas fa-trash"></i></button>

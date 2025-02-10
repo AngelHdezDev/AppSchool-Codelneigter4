@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -84,7 +85,7 @@
             background: white;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
             display: flex;
             justify-content: space-between;
@@ -116,7 +117,7 @@
             background: white;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
 
@@ -140,7 +141,7 @@
             background: white;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .task-list {
@@ -204,42 +205,17 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Sidebar -->
-    <div class="sidebar">
-        <div class="profile-section">
-            <img src="/api/placeholder/80/80" alt="Profesor">
-            <h3>Prof. <?= session()->get('name') ?? 'Juan Pérez' ?></h3>
-            <p>Matemáticas</p>
-        </div>
-        <div class="menu">
-            <a href="<?= base_url('dashboard') ?>" class="menu-item">
-                <i class="fas fa-home"></i> Dashboard
-            </a>
-            <a href="<?= base_url('/tareas') ?>" class="menu-item">
-                <i class="fas fa-tasks"></i> Tareas
-            </a>
-            <a href="<?= base_url('students') ?>" class="menu-item">
-                <i class="fas fa-users"></i> Alumnos
-            </a>
-            <a href="<?= base_url('grades') ?>" class="menu-item">
-                <i class="fas fa-star"></i> Calificaciones
-            </a>
-            <a href="<?= base_url('messages') ?>" class="menu-item">
-                <i class="fas fa-envelope"></i> Mensajes
-            </a>
-            <a href="<?= base_url('settings') ?>" class="menu-item">
-                <i class="fas fa-cog"></i> Configuración
-            </a>
-        </div>
-    </div>
+    <?php include(APPPATH . 'Views/partials/sidebar.php'); ?>
 
     <!-- Main Content -->
     <div class="main-content">
         <div class="header">
             <h1>Dashboard</h1>
-            
-            <a href="<?= base_url('auth/logout') ?>"" class="logout-btn">
+
+            <a href="<?= base_url('auth/logout') ?>"" class=" logout-btn">
                 <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
             </a>
         </div>
@@ -303,4 +279,5 @@
         </div>
     </div>
 </body>
+
 </html>
