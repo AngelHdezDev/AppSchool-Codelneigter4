@@ -7,6 +7,7 @@
     <title>Crear Tarea</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
+        
         * {
             margin: 0;
             padding: 0;
@@ -216,7 +217,14 @@
             min-height: 100vh;
         }
 
-    
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background: #2c3e50;
+            height: 100vh;
+            position: fixed;
+            padding: 20px 0;
+        }
 
         /* Contenido principal */
         .main-content {
