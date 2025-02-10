@@ -11,4 +11,9 @@ class TareasController extends BaseController
     {
         return view('tareas');
     }
+
+    public function tarea()
+    {
+        return view('createTarea');
+    }
 }

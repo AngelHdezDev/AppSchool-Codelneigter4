@@ -220,9 +220,10 @@
             </a>
         </div>
 
-        <button class="create-task-btn">
+        <a href="<?= base_url('/tarea') ?>" class="create-task-btn">
             <i class="fas fa-plus"></i> Nueva Tarea
-        </button>
+        </a>
+
 
         <div class="dashboard-grid">
             <div class="stat-card">
