@@ -341,7 +341,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="fecha_entrega">Fecha de entrega:</label>
+                    <label for="due_date">Fecha de entrega:</label>
                     <input type="date" id="fecha_entrega" name="fecha_entrega" required>
                 </div>
 

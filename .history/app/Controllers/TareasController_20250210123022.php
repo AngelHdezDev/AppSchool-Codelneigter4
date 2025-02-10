@@ -22,16 +22,16 @@ class TareasController extends BaseController
     {
         $tareaModel = new TareaModel();
 
+        // Obtenemos los datos del formulario
         $data = [
             'titulo' => $this->request->getPost('titulo'),
             'descripcion' => $this->request->getPost('descripcion'),
             'fecha_entrega' => $this->request->getPost('fecha_entrega'),
-            'maestro_id' => 1,
-            'grupo_id' => 1,
-            
+            'maestro_id' => 1,  // Asignamos valor 1
+            'grupo_id' => 1,    // Asignamos valor 1
         ];
 
-      
+        // Log para ver los datos recibidos
         log_message('info', 'Datos recibidos: ' . json_encode($data));
 
        

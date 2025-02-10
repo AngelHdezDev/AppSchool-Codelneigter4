@@ -11,7 +11,7 @@ class TareaModel extends Model
 
     protected $allowedFields = ['titulo', 'descripcion', 'fecha_entrega', 'maestro_id', 'grupo_id', 'created_at', 'updated_at', 'deleted_at'];
 
-    protected $useTimestamps = true;
+    
 
     // Validación de datos
     protected $validationRules = [

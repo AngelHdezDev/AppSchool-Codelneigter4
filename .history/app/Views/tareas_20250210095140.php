@@ -156,6 +156,9 @@
     <div class="main-content">
         <div class="header">
             <h1>Tareas</h1>
+            <button class="create-task-btn">
+                <i class="fas fa-plus"></i> Nueva Tarea
+            </button>
             <a href="<?= base_url('/tarea') ?>" class="create-task-btn">
                 <i class="fas fa-plus"></i> Nueva Tarea
             </a>

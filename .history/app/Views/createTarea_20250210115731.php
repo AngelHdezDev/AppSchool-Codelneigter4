@@ -331,8 +331,8 @@
 
             <form action="<?= base_url('/tarea/store') ?>" method="POST" class="task-form">
                 <div class="form-group">
-                    <label for="titulo">Título de la tarea:</label>
-                    <input type="text" id="titulo" name="titulo" required>
+                    <label for="title">Título de la tarea:</label>
+                    <input type="text" id="title" name="title" required>
                 </div>
 
                 <div class="form-group">
@@ -341,8 +341,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="fecha_entrega">Fecha de entrega:</label>
-                    <input type="date" id="fecha_entrega" name="fecha_entrega" required>
+                    <label for="due_date">Fecha de entrega:</label>
+                    <input type="date" id=f" name="due_date" required>
                 </div>
 
 

@@ -27,8 +27,7 @@ class TareasController extends BaseController
             'descripcion' => $this->request->getPost('descripcion'),
             'fecha_entrega' => $this->request->getPost('fecha_entrega'),
             'maestro_id' => 1,
-            'grupo_id' => 1,
-            
+            'grupo_id' => 1,    
         ];
 
       

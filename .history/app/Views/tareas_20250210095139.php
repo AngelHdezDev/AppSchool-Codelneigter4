@@ -150,15 +150,18 @@
 </head>
 
 <body>
-    <?php include(APPPATH . 'Views/partials/sidebar.php'); ?>
+<?php include(APPPATH . 'Views/partials/sidebar.php'); ?>
 
 
     <div class="main-content">
         <div class="header">
             <h1>Tareas</h1>
-            <a href="<?= base_url('/tarea') ?>" class="create-task-btn">
+            <button class="create-task-btn">
                 <i class="fas fa-plus"></i> Nueva Tarea
-            </a>
+            </button>
+            <a href="<?= base_url('/tarea') ?>" class="create-task-btn">
+            <i class="fas fa-plus"></i> Nueva Tarea
+        </a>
         </div>
 
         <div class="task-list">
@@ -177,7 +180,7 @@
                 <div class="task-info">
                     <h4>Proyecto de Geometría</h4>
                     <p>Fecha límite: 20 de Febrero, 2025</p>
-                </div>
+             </div>
                 <div class="task-actions">
                     <button class="edit-btn"><i class="fas fa-edit"></i></button>
                     <button class="delete-btn"><i class="fas fa-trash"></i></button>

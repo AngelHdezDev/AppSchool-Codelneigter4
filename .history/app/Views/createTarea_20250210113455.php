@@ -329,20 +329,20 @@
         <div class="task-container">
             <h2>Crear Nueva Tarea</h2>
 
-            <form action="<?= base_url('/tarea/store') ?>" method="POST" class="task-form">
+            <form action="<?= base_url('tarea/store') ?>" method="POST" class="task-form">
                 <div class="form-group">
-                    <label for="titulo">Título de la tarea:</label>
-                    <input type="text" id="titulo" name="titulo" required>
+                    <label for="title">Título de la tarea:</label>
+                    <input type="text" id="title" name="title" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="descripcion">Descripción:</label>
-                    <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
+                    <label for="description">Descripción:</label>
+                    <textarea id="description" name="description" rows="4" required></textarea>
                 </div>
 
                 <div class="form-group">
-                    <label for="fecha_entrega">Fecha de entrega:</label>
-                    <input type="date" id="fecha_entrega" name="fecha_entrega" required>
+                    <label for="due_date">Fecha de entrega:</label>
+                    <input type="date" id="due_date" name="due_date" required>
                 </div>
 
 

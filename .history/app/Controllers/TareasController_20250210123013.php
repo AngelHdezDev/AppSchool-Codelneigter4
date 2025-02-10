@@ -22,35 +22,35 @@ class TareasController extends BaseController
     {
         $tareaModel = new TareaModel();
 
+        // Obtenemos los datos del formulario
         $data = [
             'titulo' => $this->request->getPost('titulo'),
             'descripcion' => $this->request->getPost('descripcion'),
             'fecha_entrega' => $this->request->getPost('fecha_entrega'),
-            'maestro_id' => 1,
-            'grupo_id' => 1,
-            
+            'maestro_id' => 1,  // Asignamos valor 1
+            'grupo_id' => 1,    // Asignamos valor 1
         ];
 
-      
+        // Log para ver los datos recibidos
         log_message('info', 'Datos recibidos: ' . json_encode($data));
 
-       
+        // Validamos que los campos requeridos no estén vacíos
         if (empty($data['titulo']) || empty($data['descripcion']) || empty($data['fecha_entrega'])) {
             log_message('error', 'Faltan datos requeridos: ' . json_encode($data));
-      
+            // Enviamos un error de validación (sin redirigir)
             return $this->response->setStatusCode(400)->setJSON([
                 'error' => 'Por favor complete todos los campos',
             ]);
         }
 
-
+        // Intentamos insertar la tarea en la base de datos
         try {
             $result = $tareaModel->insert($data);
 
-   
+            // Verificamos si la inserción fue exitosa
             if ($result === false) {
                 log_message('error', 'No se pudo insertar la tarea: ' . json_encode($data));
-                
+                // Enviamos un error de servidor (sin redirigir)
                 return $this->response->setStatusCode(500)->setJSON([
                     'error' => 'Hubo un error al crear la tarea',
                 ]);
@@ -62,7 +62,7 @@ class TareasController extends BaseController
         } catch (\Exception $e) {
       
             log_message('error', 'Error al crear tarea: ' . $e->getMessage());
-          
+            // Enviamos un error de servidor (sin redirigir)
             return $this->response->setStatusCode(500)->setJSON([
                 'error' => 'Hubo un error al crear la tarea',
             ]);
