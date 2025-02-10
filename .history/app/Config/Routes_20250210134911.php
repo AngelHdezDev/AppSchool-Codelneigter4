@@ -14,6 +14,10 @@ $routes->get('/tareas', 'TareasController::index');
 $routes->get('/tarea', 'TareasController::tarea');
 $routes->post('/tarea/store', 'TareasController::store');
 $routes->post('/tarea/delete/(:num)', 'TareasController::delete/$1');
-$routes->get('/tarea/editar/(:num)', 'TareasController::editar/$1');
-$routes->post('/tarea/update/(:num)', 'TareasController::update/$1');
+$routes->group('tarea', function ($routes) {
+    // Ruta para editar tarea
+    $routes->get('editar/(:num)', 'TareaController::edit/$1');
 
+    // Ruta para actualizar tarea
+    $routes->post('update', 'TareaController::update');
+});

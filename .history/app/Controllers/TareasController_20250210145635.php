@@ -95,9 +95,11 @@ class TareasController extends BaseController
     }
 
 
-    public function update($id)
+    public function update()
     {
         $validation = \Config\Services::validation();
+
+        // Validar los datos del formulario
         if (!$this->validate([
             'titulo' => 'required|min_length[3]',
             'descripcion' => 'required|min_length[3]',
@@ -106,7 +108,7 @@ class TareasController extends BaseController
             return redirect()->back()->withInput()->with('error', $validation->getErrors());
         }
 
-        $tareaModel = new \App\Models\TareaModel();
+        $tareaModel = new TareaModel();
         $data = [
             'titulo' => $this->request->getPost('titulo'),
             'descripcion' => $this->request->getPost('descripcion'),
@@ -114,8 +116,10 @@ class TareasController extends BaseController
             'maestro_id' => 1,
             'grupo_id' => 1,
         ];
-        $tareaModel->update($id, $data);
 
-        return redirect()->to('/dashboard')->with('success', 'Tarea actualizada con éxito');
+        // Actualizar la tarea en la base de datos
+        $tareaModel->update($this->request->getPost('id'), $data);
+
+        return redirect()->to('/tarea')->with('success', 'Tarea actualizada con éxito');
     }
 }

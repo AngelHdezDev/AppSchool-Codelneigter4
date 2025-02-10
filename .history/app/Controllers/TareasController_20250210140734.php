@@ -82,7 +82,7 @@ class TareasController extends BaseController
         }
     }
 
-    public function editar($id)
+    public function edit($id)
     {
         $tareaModel = new TareaModel();
         $tarea = $tareaModel->find($id);
@@ -91,13 +91,15 @@ class TareasController extends BaseController
             return redirect()->to('/tarea')->with('error', 'Tarea no encontrada');
         }
 
-        return view('editTarea', ['tarea' => $tarea]);
+        return view('editarea', ['tarea' => $tarea]);
     }
 
 
-    public function update($id)
+    public function update()
     {
         $validation = \Config\Services::validation();
+
+        // Validar los datos del formulario
         if (!$this->validate([
             'titulo' => 'required|min_length[3]',
             'descripcion' => 'required|min_length[3]',
@@ -106,16 +108,16 @@ class TareasController extends BaseController
             return redirect()->back()->withInput()->with('error', $validation->getErrors());
         }
 
-        $tareaModel = new \App\Models\TareaModel();
+        $tareaModel = new TareaModel();
         $data = [
             'titulo' => $this->request->getPost('titulo'),
             'descripcion' => $this->request->getPost('descripcion'),
-            'fecha_entrega' => $this->request->getPost('fecha_entrega'),
-            'maestro_id' => 1,
-            'grupo_id' => 1,
+            'fecha_entrega' => $this->request->getPost('fecha_entrega')
         ];
-        $tareaModel->update($id, $data);
 
-        return redirect()->to('/dashboard')->with('success', 'Tarea actualizada con éxito');
+        // Actualizar la tarea en la base de datos
+        $tareaModel->update($this->request->getPost('id'), $data);
+
+        return redirect()->to('/tarea')->with('success', 'Tarea actualizada con éxito');
     }
 }

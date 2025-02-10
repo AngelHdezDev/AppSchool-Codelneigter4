@@ -74,7 +74,7 @@ class TareasController extends BaseController
 
     public function delete($id)
     {
-        $tareaModel = new TareaModel();
+        $tareaModel = new TareaModel(); 
         if ($tareaModel->delete($id)) {
             return redirect()->to(base_url('dashboard'))->with('success', 'Tarea eliminada correctamente');
         } else {
@@ -82,40 +82,5 @@ class TareasController extends BaseController
         }
     }
 
-    public function editar($id)
-    {
-        $tareaModel = new TareaModel();
-        $tarea = $tareaModel->find($id);
-
-        if (!$tarea) {
-            return redirect()->to('/tarea')->with('error', 'Tarea no encontrada');
-        }
-
-        return view('editTarea', ['tarea' => $tarea]);
-    }
-
-
-    public function update($id)
-    {
-        $validation = \Config\Services::validation();
-        if (!$this->validate([
-            'titulo' => 'required|min_length[3]',
-            'descripcion' => 'required|min_length[3]',
-            'fecha_entrega' => 'required|valid_date'
-        ])) {
-            return redirect()->back()->withInput()->with('error', $validation->getErrors());
-        }
-
-        $tareaModel = new \App\Models\TareaModel();
-        $data = [
-            'titulo' => $this->request->getPost('titulo'),
-            'descripcion' => $this->request->getPost('descripcion'),
-            'fecha_entrega' => $this->request->getPost('fecha_entrega'),
-            'maestro_id' => 1,
-            'grupo_id' => 1,
-        ];
-        $tareaModel->update($id, $data);
-
-        return redirect()->to('/dashboard')->with('success', 'Tarea actualizada con éxito');
-    }
+    
 }

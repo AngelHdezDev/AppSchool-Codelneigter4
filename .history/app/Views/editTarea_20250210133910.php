@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Profesor</title>
+    <title>Crear Tarea</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
@@ -204,150 +204,156 @@
             margin-right: 8px;
         }
 
-        .edit-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 10px 15px;
-            background: #3498db;
-            /* Color de fondo azul */
-            color: white;
-            font-size: 16px;
-            font-weight: 600;
-            border-radius: 5px;
-            text-decoration: none;
-            /* Para quitar el subrayado del enlace */
-            transition: background 0.3s ease, transform 0.2s ease;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #f5f6fa;
+            min-height: 100vh;
+        }
+
+
+
+        /* Contenido principal */
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+
+        .header {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            /* Sombra sutil */
-        }
-
-        .edit-btn i {
-            font-size: 1.2rem;
-            /* Icono más grande */
-            margin-right: 5px;
-            /* Espacio entre icono y texto */
-        }
-
-        .edit-btn:hover {
-            background: #2980b9;
-            /* Fondo más oscuro al pasar el mouse */
-            transform: translateY(-2px);
-            /* Efecto de elevación al pasar el mouse */
-        }
-
-        .edit-btn:active {
-            transform: translateY(1px);
-            /* Efecto de presionar el botón */
-        }
-
-        .delete-btn {
-            display: inline-flex;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 10px 15px;
+        }
+
+        .header h1 {
+            color: #2c3e50;
+        }
+
+        .logout-btn {
             background: #e74c3c;
-            /* Color de fondo rojo */
             color: white;
-            font-size: 16px;
-            font-weight: 600;
-            border-radius: 5px;
+            padding: 8px 15px;
             border: none;
-            /* Quitar borde predeterminado */
+            border-radius: 5px;
+            cursor: pointer;
             text-decoration: none;
-            /* Para quitar el subrayado */
-            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        /* Contenedor del formulario */
+        .task-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            /* Sombra sutil */
         }
 
-        .delete-btn i {
-            font-size: 1.2rem;
-            /* Icono más grande */
-            margin-right: 5px;
-            /* Espacio entre icono y texto */
+        .task-container h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
         }
 
-        .delete-btn:hover {
-            background: #c0392b;
-            /* Fondo más oscuro al pasar el mouse */
-            transform: translateY(-2px);
-            /* Efecto de elevación al pasar el mouse */
+        /* Estilos del formulario */
+        .task-form .form-group {
+            margin-bottom: 15px;
         }
 
-        .delete-btn:active {
-            transform: translateY(1px);
-            /* Efecto de presionar el botón */
+        .task-form label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+
+        .task-form input,
+        .task-form textarea,
+        .task-form select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .task-form textarea {
+            resize: vertical;
+        }
+
+        /* Botón principal */
+        .btn-primary {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px;
+            width: 100%;
+            background: #2ecc71;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .btn-primary:hover {
+            background: #27ae60;
         }
     </style>
 </head>
 
 <body>
-    <!-- Sidebar -->
+
     <?php include(APPPATH . 'Views/partials/sidebar.php'); ?>
 
-    <!-- Main Content -->
     <div class="main-content">
         <div class="header">
-            <h1>Dashboard</h1>
-
-            <a href="<?= base_url('auth/logout') ?>"" class=" logout-btn">
+            <h1>Editar Tarea</h1>
+            <a href="<?= base_url('auth/logout') ?>" class="logout-btn">
                 <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
             </a>
         </div>
 
-        <a href="<?= base_url('/tarea') ?>" class="create-task-btn">
-            <i class="fas fa-plus"></i> Nueva Tarea
-        </a>
+        <div class="task-container">
+            <h2>Crear Nueva Tarea</h2>
+
+            <form action="<?= base_url('/tarea/store') ?>" method="POST" class="task-form">
+                <div class="form-group">
+                    <label for="titulo">Título de la tarea:</label>
+                    <input type="text" id="titulo" name="titulo" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="descripcion">Descripción:</label>
+                    <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="fecha_entrega">Fecha de entrega:</label>
+                    <input type="date" id="fecha_entrega" name="fecha_entrega" required>
+                </div>
 
 
-        <div class="dashboard-grid">
-            <div class="stat-card">
-                <i class="fas fa-users"></i>
-                <h3>150</h3>
-                <p>Alumnos Totales</p>
-            </div>
-            <div class="stat-card">
-                <i class="fas fa-tasks"></i>
-                <h3>24</h3>
-                <p>Tareas Activas</p>
-            </div>
-            <div class="stat-card">
-                <i class="fas fa-clock"></i>
-                <h3>12</h3>
-                <p>Pendientes de Calificar</p>
-            </div>
-        </div>
 
-        <!-- resources/views/dashboard.php -->
-
-        <div class="recent-tasks">
-            <h2>Tareas Recientes</h2>
-            <div class="task-list">
-                <?php foreach ($tareas as $tarea): ?>
-                    <div class="task-item">
-                        <div class="task-info">
-                            <h4><?= esc($tarea['titulo']); ?></h4>
-                            <p>Fecha límite: <?= esc($tarea['fecha_entrega']); ?></p>
-                        </div>
-                        <div class="task-actions">
-                            <a href="<?= base_url('/tarea/editar/' . $tarea['id']); ?>" class="edit-btn">
-                                <i class="fas fa-edit"></i>
-                            </a>
-
-                            <!-- Formulario para eliminar la tarea -->
-                            <form action="<?= base_url('tarea/delete/' . $tarea['id']); ?>" method="POST" style="display:inline;">
-                                <button type="submit" class="delete-btn"><i class="fas fa-trash"></i> </button>
-                            </form>
-
-                        </div>
-                    </div>
-                <?php endforeach; ?>
-            </div>
+                <button type="submit" class="btn-primary">
+                    <i class="fas fa-save"></i> Guardar Tarea
+                </button>
+            </form>
         </div>
     </div>
+
 </body>
 
 </html>

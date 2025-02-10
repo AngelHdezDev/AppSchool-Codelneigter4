@@ -1,0 +1,27 @@
+ERROR - 2025-02-10 18:02:52 --> Faltan datos requeridos: {"titulo":null,"descripcion":"343543","fecha_entrega":null}
+ERROR - 2025-02-10 18:04:47 --> Faltan datos requeridos: {"titulo":null,"descripcion":null,"fecha_entrega":null}
+ERROR - 2025-02-10 18:05:37 --> Faltan datos requeridos: {"titulo":"Prueba","descripcion":"2323","fecha_entrega":null}
+ERROR - 2025-02-10 18:06:07 --> No se pudo insertar la tarea: {"titulo":"Prueba","descripcion":"efff","fecha_entrega":"2025-02-01"}
+ERROR - 2025-02-10 18:06:19 --> Faltan datos requeridos: {"titulo":null,"descripcion":null,"fecha_entrega":null}
+ERROR - 2025-02-10 18:13:51 --> Faltan datos requeridos: {"titulo":null,"descripcion":null,"fecha_entrega":null,"maestro_id":1,"grupo_id":1}
+ERROR - 2025-02-10 18:17:37 --> Faltan datos requeridos: {"titulo":null,"descripcion":null,"fecha_entrega":null,"maestro_id":1,"grupo_id":1}
+ERROR - 2025-02-10 18:17:42 --> Faltan datos requeridos: {"titulo":null,"descripcion":null,"fecha_entrega":null,"maestro_id":1,"grupo_id":1}
+ERROR - 2025-02-10 18:19:50 --> Faltan datos requeridos: {"titulo":null,"descripcion":null,"fecha_entrega":null,"maestro_id":1,"grupo_id":1}
+ERROR - 2025-02-10 18:27:57 --> Faltan datos requeridos: {"titulo":null,"descripcion":null,"fecha_entrega":null,"maestro_id":1,"grupo_id":1}
+ERROR - 2025-02-10 18:29:44 --> Faltan datos requeridos: {"titulo":null,"descripcion":null,"fecha_entrega":null,"maestro_id":1,"grupo_id":1}
+ERROR - 2025-02-10 18:30:04 --> Faltan datos requeridos: {"titulo":null,"descripcion":null,"fecha_entrega":null,"maestro_id":1,"grupo_id":1}
+CRITICAL - 2025-02-10 18:51:07 --> ErrorException: Undefined variable $tareas
+[Method: GET, Route: dashboard]
+in APPPATH\Views\dashboard.php on line 251.
+ 1 APPPATH\Views\dashboard.php(251): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tareas', 'C:\\laragon\\www\\AppSchool-Codelneigter4\\app\\Views\\dashboard.php', 251)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\laragon\\www\\AppSchool-Codelneigter4\\app\\Views\\dashboard.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('dashboard', [], true)
+ 5 APPPATH\Controllers\DashboardController.php(17): view('dashboard')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\DashboardController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DashboardController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\AppSchool-Codelneigter4\\public\\index.php')

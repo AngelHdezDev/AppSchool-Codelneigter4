@@ -214,7 +214,7 @@
             /* Color de fondo azul */
             color: white;
             font-size: 16px;
-            font-weight: 600;
+            font-weight: 400;
             border-radius: 5px;
             text-decoration: none;
             /* Para quitar el subrayado del enlace */
@@ -238,46 +238,6 @@
         }
 
         .edit-btn:active {
-            transform: translateY(1px);
-            /* Efecto de presionar el botón */
-        }
-
-        .delete-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 10px 15px;
-            background: #e74c3c;
-            /* Color de fondo rojo */
-            color: white;
-            font-size: 16px;
-            font-weight: 600;
-            border-radius: 5px;
-            border: none;
-            /* Quitar borde predeterminado */
-            text-decoration: none;
-            /* Para quitar el subrayado */
-            transition: background 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            /* Sombra sutil */
-        }
-
-        .delete-btn i {
-            font-size: 1.2rem;
-            /* Icono más grande */
-            margin-right: 5px;
-            /* Espacio entre icono y texto */
-        }
-
-        .delete-btn:hover {
-            background: #c0392b;
-            /* Fondo más oscuro al pasar el mouse */
-            transform: translateY(-2px);
-            /* Efecto de elevación al pasar el mouse */
-        }
-
-        .delete-btn:active {
             transform: translateY(1px);
             /* Efecto de presionar el botón */
         }
@@ -333,15 +293,14 @@
                             <p>Fecha límite: <?= esc($tarea['fecha_entrega']); ?></p>
                         </div>
                         <div class="task-actions">
-                            <a href="<?= base_url('/tarea/editar/' . $tarea['id']); ?>" class="edit-btn">
-                                <i class="fas fa-edit"></i>
+                            <a href="<?= base_url('tarea/editar/' . $tarea['id']); ?>" class="edit-btn">
+                                <i class="fas fa-edit"></i> 
                             </a>
 
                             <!-- Formulario para eliminar la tarea -->
                             <form action="<?= base_url('tarea/delete/' . $tarea['id']); ?>" method="POST" style="display:inline;">
                                 <button type="submit" class="delete-btn"><i class="fas fa-trash"></i> </button>
                             </form>
-
                         </div>
                     </div>
                 <?php endforeach; ?>

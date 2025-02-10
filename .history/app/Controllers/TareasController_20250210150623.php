@@ -98,6 +98,8 @@ class TareasController extends BaseController
     public function update($id)
     {
         $validation = \Config\Services::validation();
+
+        // Validar los datos del formulario
         if (!$this->validate([
             'titulo' => 'required|min_length[3]',
             'descripcion' => 'required|min_length[3]',
@@ -114,6 +116,8 @@ class TareasController extends BaseController
             'maestro_id' => 1,
             'grupo_id' => 1,
         ];
+
+        // Actualizar la tarea en la base de datos
         $tareaModel->update($id, $data);
 
         return redirect()->to('/dashboard')->with('success', 'Tarea actualizada con éxito');

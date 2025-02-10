@@ -333,7 +333,7 @@
                             <p>Fecha límite: <?= esc($tarea['fecha_entrega']); ?></p>
                         </div>
                         <div class="task-actions">
-                            <a href="<?= base_url('/tarea/editar/' . $tarea['id']); ?>" class="edit-btn">
+                            <a href="<?= base_url('tarea/editarrrrr/' . $tarea['id']); ?>" class="edit-btn">
                                 <i class="fas fa-edit"></i>
                             </a>
 

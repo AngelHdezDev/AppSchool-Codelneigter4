@@ -98,6 +98,8 @@ class TareasController extends BaseController
     public function update($id)
     {
         $validation = \Config\Services::validation();
+
+        // Validar los datos del formulario
         if (!$this->validate([
             'titulo' => 'required|min_length[3]',
             'descripcion' => 'required|min_length[3]',
